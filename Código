@@ -1,0 +1,65 @@
+import random
+computador_1 = 0
+computador_2 = 0
+jogador_1 = 0
+jogador_2 = 0
+
+# Modos de jogo e seus números
+print("Computador x Computador: 1")
+print("Humano x Computador: 2")
+print("Humano x Humano: 3")
+
+# Escolhas do jogo
+comp_1 = ["tesoura", "pedra", "papel"]
+comp_2 = ["tesoura", "pedra", "papel"]
+
+computer_1 = random.choice(comp_1)
+computer_2 = random.choice(comp_2)
+
+# Entrada de dados
+Game_mode = int(input("Escolha o modo de jogo: "))
+
+# Condição: Computador x Computador
+
+if Game_mode == 1:
+    print("Você escolheu o modo Comp x Comp")
+    print("Computador_1: " + computer_1)
+    print("Computador_2: " + computer_2)
+
+    if computer_1 == computer_2:
+        print("Empate")
+    elif computer_1 == "tesoura":
+        if computer_2 == "pedra":
+            print("Computador_2 ganhou")
+            computador_2 = computador_2 + 1
+        if computer_2 == "papel":
+            print("Computador_1 ganhou")
+            computador_1 = computador_1 + 1
+    elif computer_1 == "pedra":
+        if computer_2 == "papel":
+            print("Computador_2 ganhou")
+            computador_2 = computador_2 + 1
+        if computer_2 == "tesoura":
+            print("Computador_1 ganhou")
+            computador_1 = computador_1 + 1
+    elif computer_1 == "papel":
+        if computer_2 == "tesoura":
+            print("Computador_2 ganhou")
+            computador_2 = computador_2 + 1
+        if computer_2 == "pedra":
+            print("Computador_1 ganhou")
+            computador_1 = computador_1 + 1
+    print("Placar: Computador1: " + str(computador_1) + " Computador2: " + str(computador_2))
+
+
+# Condição Humano x Computador
+elif Game_mode == 2:
+    print("Você escolheu o modo Hum x Comp")
+    jogador_n1 = str(input("Qual o seu nome: "))
+
+
+elif Game_mode == 3:
+    print("Você escolheu o modo Hum x Hum")
+    jogador_n1 = str(input("Qual o seu nome: "))
+    jogador_n2 = str(input("Qual o seu nome: "))
+
