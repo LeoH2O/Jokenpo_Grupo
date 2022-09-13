@@ -1,9 +1,9 @@
 import random
 # Scores iniciais
-computador_1 = 0
-computador_2 = 0
-jogador_1 = 0
-jogador_2 = 0
+comp1_score = 0
+comp2_score = 0
+player1_score = 0
+player2_score = 0
 
 # Modos de jogo e seus números
 print("Computador x Computador: 1")
@@ -11,21 +11,21 @@ print("Humano x Computador: 2")
 print("Humano x Humano: 3")
 
 # Escolhas do jogo
-comp_1 = ["tesoura", "pedra", "papel"]
+comp_random = ["tesoura", "pedra", "papel"]
 
 # Entrada de dados
 Game_mode = int(input("Escolha o modo de jogo: "))
 if Game_mode == 2:
-    n_jogador1 = str(input("Nome do jogador: "))
+    player1_name = str(input("Nome do jogador: "))
 elif Game_mode == 3:
-    n_jogador1 = str(input("Nome do jogador1: "))
-    n_jogador2 = str(input("Nome do jogador2: "))
+    player1_name = str(input("Nome do jogador1: "))
+    player2_name = str(input("Nome do jogador2: "))
 
 # Condição: Computador x Computador
 while True:
     if Game_mode == 1:
-        computer_1 = random.choice(comp_1)
-        computer_2 = random.choice(comp_1)
+        computer_1 = random.choice(comp_random)
+        computer_2 = random.choice(comp_random)
         print("Você escolheu o modo Comp x Comp")
         print("Computador_1: " + computer_1)
         print("Computador_2: " + computer_2)
@@ -35,25 +35,25 @@ while True:
         elif computer_1 == "tesoura":
             if computer_2 == "pedra":
                 print("Computador_2 ganhou")
-                computador_2 = computador_2 + 1
+                comp2_score = comp2_score + 1
             if computer_2 == "papel":
                 print("Computador_1 ganhou")
-                computador_1 = computador_1 + 1
+                comp1_score = comp1_score + 1
         elif computer_1 == "pedra":
             if computer_2 == "papel":
                 print("Computador_2 ganhou")
-                computador_2 = computador_2 + 1
+                comp2_score = comp2_score + 1
             if computer_2 == "tesoura":
                 print("Computador_1 ganhou")
-                computador_1 = computador_1 + 1
+                comp1_score = comp1_score + 1
         elif computer_1 == "papel":
             if computer_2 == "tesoura":
                 print("Computador_2 ganhou")
-                computador_2 = computador_2 + 1
+                comp2_score = comp2_score + 1
             if computer_2 == "pedra":
                 print("Computador_1 ganhou")
-                computador_1 = computador_1 + 1
-        print("Placar: Computador1: ", str(computador_1), " Computador2: ", str(computador_2))
+                comp1_score = comp1_score + 1
+        print("Placar: Computador1: ", str(comp1_score), " Computador2: ", str(comp2_score))
 
         play_again = str(input("Quer continuar o jogo (sim/nao): "))
         if play_again != "sim":
@@ -62,74 +62,74 @@ while True:
 # Condição Humano x Computador
     elif Game_mode == 2:
         print("Você escolheu o modo Hum x Comp")
-        computer_1 = random.choice(comp_1)
-        escolha_jogador = str(input("pedra, papel, tesoura: "))
-        print(n_jogador1, " :", escolha_jogador)
+        computer_1 = random.choice(comp_random)
+        player_choice = str(input("pedra, papel, tesoura: "))
+        print(player1_name, " :", player_choice)
         print("Computador: ", computer_1)
 
-        if computer_1 == escolha_jogador:
+        if computer_1 == player_choice:
             print("Empate")
         elif computer_1 == "tesoura":
-            if escolha_jogador == "pedra":
-                print(n_jogador1, " ganhou")
-                jogador_1 = jogador_1 + 1
-            if escolha_jogador == "papel":
+            if player_choice == "pedra":
+                print(player1_name, " ganhou")
+                player1_score = player1_score + 1
+            if player_choice == "papel":
                 print("Computador ganhou")
-                computador_1 = computador_1 + 1
+                comp1_score = comp1_score + 1
         elif computer_1 == "pedra":
-            if escolha_jogador == "papel":
-                print(n_jogador1, " ganhou")
-                jogador_1 = jogador_1 + 1
-            if escolha_jogador == "tesoura":
+            if player_choice == "papel":
+                print(player1_name, " ganhou")
+                player1_score = player1_score + 1
+            if player_choice == "tesoura":
                 print("Computador ganhou")
-                computador_1 = computador_1 + 1
+                comp1_score = comp1_score + 1
         elif computer_1 == "papel":
-            if escolha_jogador == "tesoura":
-                print(n_jogador1, " ganhou")
-                jogador_1 = jogador_1 + 1
-            if escolha_jogador == "pedra":
+            if player_choice == "tesoura":
+                print(player1_name, " ganhou")
+                player1_score = player1_score + 1
+            if player_choice == "pedra":
                 print("Computador ganhou")
-                computador_1 = computador_1 + 1
-        print("Placar: Computador1: ", str(computador_1), " ", n_jogador1, ": ", str(jogador_1))
+                comp1_score = comp1_score + 1
+        print("Placar: Computador1: ", str(comp1_score), " ", player1_name, ": ", str(player1_score))
 
         play_again = str(input("Quer continuar o jogo (sim/nao): "))
         if play_again != "sim":
-            print("Obrigado por jogar", n_jogador1)
+            print("Obrigado por jogar", player1_name)
             break
 # Condição Humano x Humano
     elif Game_mode == 3:
         print("Você escolheu o modo Hum x Hum")
-        escolha_jogador1 = str(input(str(n_jogador1) + " escolha (pedra, papel ou tesoura): "))
-        escolha_jogador2 = str(input(str(n_jogador2) + " escolha (pedra, papel ou tesoura): "))
-        print(n_jogador1, " :", escolha_jogador1)
-        print(n_jogador2, " :", escolha_jogador2)
+        player1_choice = str(input(str(player1_name) + " escolha (pedra, papel ou tesoura): "))
+        player2_choice = str(input(str(player2_name) + " escolha (pedra, papel ou tesoura): "))
+        print(player1_name, " :", player1_choice)
+        print(player2_name, " :", player2_choice)
 
-        if escolha_jogador1 == escolha_jogador2:
+        if player1_choice == player2_choice:
             print("Empate")
-        elif escolha_jogador1 == "tesoura":
-            if escolha_jogador2 == "pedra":
-                print(n_jogador2, " ganhou")
-                jogador_2 = jogador_2 + 1
-            if escolha_jogador2 == "papel":
-                print(n_jogador1, " ganhou")
-                jogador_1 = jogador_1 + 1
-        elif escolha_jogador1 == "pedra":
-            if escolha_jogador2 == "papel":
-                print(n_jogador2, " ganhou")
-                jogador_2 = jogador_2 + 1
-            if escolha_jogador2 == "tesoura":
-                print(n_jogador1, " ganhou")
-                jogador_1 = jogador_1 + 1
-        elif escolha_jogador1 == "papel":
-            if escolha_jogador2 == "tesoura":
-                print(n_jogador2, " ganhou")
-                jogador_2 = jogador_2 + 1
-            if escolha_jogador2 == "pedra":
-                print(n_jogador1, " ganhou")
-                jogador_1 = jogador_1 + 1
-        print("Placar: ", n_jogador1, ":", str(jogador_1), " ", n_jogador2, ":", str(jogador_2))
+        elif player1_choice == "tesoura":
+            if player2_choice == "pedra":
+                print(player2_name, " ganhou")
+                player2_score = player2_score + 1
+            if player2_choice == "papel":
+                print(player1_name, " ganhou")
+                player1_score = player1_score + 1
+        elif player1_choice == "pedra":
+            if player2_choice == "papel":
+                print(player2_name, " ganhou")
+                player2_score = player2_score + 1
+            if player2_choice == "tesoura":
+                print(player1_name, " ganhou")
+                player1_score = player1_score + 1
+        elif player1_choice == "papel":
+            if player2_choice == "tesoura":
+                print(player2_name, " ganhou")
+                player2_score = player2_score + 1
+            if player2_choice == "pedra":
+                print(player1_name, " ganhou")
+                player1_score = player1_score + 1
+        print("Placar: ", player1_name, ":", str(player1_score), " ", player2_name, ":", str(player2_score))
 
         play_again = str(input("Quer continuar o jogo (sim/nao): "))
         if play_again != "sim":
-            print("Obrigado por jogar", n_jogador1, "e", n_jogador2)
+            print("Obrigado por jogar", player1_name, "e", player2_name)
             break
